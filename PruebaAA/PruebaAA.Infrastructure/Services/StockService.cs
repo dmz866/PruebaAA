@@ -22,7 +22,8 @@ namespace PruebaAA.Infrastructure.Services
             var content = await response.Content.ReadAsStringAsync();
             var engine = new FileHelperEngine<StockEntity>();
             var stocks = engine.ReadFile(content);
-
+            //var stocks = engine.ReadFile("C:\\Users\\David\\Documents\\Estudios\\Pruebas\\Analyticalways\\PruebaAA\\PruebaAA\\PruebaAA\\bin\\Debug\\netcoreapp3.1\\Stock2.CSV");
+        
             return stocks;
         }
     }

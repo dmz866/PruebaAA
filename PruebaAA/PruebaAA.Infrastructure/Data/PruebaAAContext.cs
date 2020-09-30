@@ -9,6 +9,13 @@ namespace PruebaAA.Infrastructure.Data
         public PruebaAAContext()
         {
         }
+        public PruebaAAContext(DbContextOptions<PruebaAAContext> options) : base(options)
+        {
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=DAVID-MURILLO\SQLEXPRESS;Database=PruebaAA;Trusted_Connection=True;");
+        }
 
         public virtual DbSet<StockEntity> Stocks { get; set; }
     }

@@ -9,12 +9,20 @@ namespace PruebaAA
     {
         public static async Task Main(string[] args)
         {
-            StockService stockService = new StockService();
-            var stocks = await stockService.GetStockListCSV();
+            try
+            {
+                StockService stockService = new StockService();
+                var stocks = await stockService.GetStockListCSV();
 
-            StockRepository stockRepository = new StockRepository();
-            await stockRepository.DeleteBulk();
-            await stockRepository.InsertBulk(stocks);
+                StockRepository stockRepository = new StockRepository();
+                await stockRepository.DeleteBulk();
+                await stockRepository.InsertBulk(stocks);
+                Console.WriteLine("Archivo importado exitosamente!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(String.Format("Error al cargar el archivo: {0}", ex.Message));
+            }            
         }
     }
 }
