@@ -8,7 +8,7 @@ namespace PruebaAA.Core.Entities
     {
         [FieldHidden]
         public long Id { get; set; }
-        public int PointOfSale { get; set; }
+        public string PointOfSale { get; set; }
         public string Product { get; set; }
         [FieldConverter(ConverterKind.Date, "yyyy-mm-dd")]
         public DateTime Date { get; set; }
